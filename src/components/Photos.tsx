@@ -1,26 +1,34 @@
 import { TextField } from "@material-ui/core";
-import React, {useEffect} from "react";
+import React, {ChangeEvent, useEffect} from "react";
+import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { InitPhoto, ResponseType } from "../api/api";
+import { ResponseType } from "../api/api";
 import { getImagesTC } from "../bll/reducer";
 import { AppRootStateType } from "../bll/store";
 import s from "./Photos.module.css"
-import SideBar from "./SideBar";
 
 function Photos() {
+    
    const dispatch = useDispatch()
    const photos = useSelector<AppRootStateType, ResponseType>((state) => state.reducer)
-    
+   
    useEffect(()=>{
-        dispatch(getImagesTC())
-   },[])
+    dispatch(getImagesTC())
+    },[dispatch])
+
+   const [state, setState] = useState<string>()
+
+   const onChangeHandler = (e:ChangeEvent<HTMLInputElement>) => {
+    setState(e.currentTarget.value)
+   }
+   
     return(
         <div className={s.mainApp}>
-            <TextField id="outlined-search" label="Find Images" type="search" variant="outlined" />
+            <TextField onChange={onChangeHandler} id="outlined-search" label="Find Images" type="search" variant="outlined"  />
             {photos.photos.photo.map((e)=>{
                 var srcPath = 'https://farm'+e.farm+'.staticflickr.com/'+e.server+'/'+e.id+'_'+e.secret+'.jpg';
                 return(
-                  <div className={s.photos}>
+                  <div key={`${e.id}+${e.secret}`} className={s.photos}>
                       <img alt="dogs" src={srcPath}></img>
                   </div>
                 )

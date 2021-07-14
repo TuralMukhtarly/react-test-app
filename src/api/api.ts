@@ -6,24 +6,24 @@ const instance = axios.create({
 
 export const api = {
     getImages(){
-        return instance.get<ResponseType>("services/rest/?method=flickr.photos.search&api_key=1b7eb26a637dc6a6f1ad4c04ded10d39&tags=images&format=json&nojsoncallback=1&auth_token=72157719543797331-b715a90eaff7367a&api_sig=8c1b5b1754497f3cf60a51964a916d2d")
+        return instance.get<ResponseType>(`services/rest/?method=flickr.photos.search&api_key=a8cd496275e5274e52baf05bc8bd08e3&tags=${"minsk"}&format=json&nojsoncallback=1`)
     }
 }
 
 export type ResponseType = {
-    photos: initImg
+    photos: PhotosType
     stat:string
 }
 
-export type initImg = {
+export type PhotosType = {
     page:number
     pages:number
     perpage:number
     total:number
-    photo:Array<InitPhoto>
+    photo:Array<PhotoType>
 }
 
-export type InitPhoto = {
+export type PhotoType = {
     id:string
     owner:string
     secret:string

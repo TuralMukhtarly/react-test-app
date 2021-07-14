@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch } from "react-router";
-import Bookmarks from "../components/Bookmars";
+import Bookmarks from "../components/Bookmarks";
 import Photos from "../components/Photos";
 
 export const PATH = {

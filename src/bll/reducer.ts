@@ -8,29 +8,7 @@ const initialState: initialStateType = {
         page:1,
         pages:234,
         perpage:20,
-        photo: [{
-            farm: 66,
-            id: "51312027305",
-            isfamily: 0,
-            isfriend: 0,
-            ispublic: 1,
-            owner: "29372296@N00",
-            secret: "75d7c95f86",
-            server: "65535",
-            title: "Dry dock & lock - Milford Haven Marina aerial image - Pembrokeshire in Wales"
-        },
-        {
-            farm: 66,
-            id: "51312027305",
-            isfamily: 0,
-            isfriend: 0,
-            ispublic: 1,
-            owner: "29372296@N00",
-            secret: "75d7c95f86",
-            server: "65535",
-            title: "Dry dock & lock - Milford Haven Marina aerial image - Pembrokeshire in Wales"
-        }
-    ]
+        photo: []
     }
 }
 type getImagesType = ReturnType<typeof getImagesAC>
@@ -59,7 +37,6 @@ export const getImagesTC = () => (dispatch: Dispatch) => {
             dispatch(getImagesAC(res.data))
         })
         .catch((e) => {
-            const error = e.res ? e.res.data.error : e.message + ", more details in the console"
             console.log("Error:", { ...e })
         })
 }
