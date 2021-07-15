@@ -14,9 +14,10 @@ import ChevronRightIcon from '@material-ui/icons/ChevronRight';
 import ListItem from '@material-ui/core/ListItem';
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import ListItemText from '@material-ui/core/ListItemText';
-import Photos from './Photos';
 import CloudIcon from '@material-ui/icons/Cloud';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
+import { NavLink } from 'react-router-dom';
+import Routes, { PATH } from '../routes/Routes';
 
 const drawerWidth = 240;
 
@@ -142,15 +143,16 @@ export default function SideBar() {
         <List>
           {['All Photos', 'Bookmarks'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <CloudIcon /> : <BookmarksIcon />}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? <NavLink to={PATH.MAIN}><CloudIcon /></NavLink> : <NavLink to={PATH.BOOKMARS} replace><BookmarksIcon /></NavLink>}</ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
+            
           ))}
         </List>
       </Drawer>
       <main className={classes.content}>
         <div className={classes.toolbar} />
-          <Photos/>
+        <Routes/>
       </main>
     </div>
   );

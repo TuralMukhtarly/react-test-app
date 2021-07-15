@@ -1,5 +1,6 @@
 import { Dispatch } from "redux"
 import { api, ResponseType } from "../api/api"
+import { addBookmarksType } from "./bookmarksReducer"
 
 type initialStateType = any
 
@@ -9,10 +10,11 @@ const initialState: initialStateType = {
         pages:234,
         perpage:20,
         photo: []
-    }
+    },
 }
+
 type getImagesType = ReturnType<typeof getImagesAC>
-type ActionType = getImagesType
+export type ActionType = getImagesType | addBookmarksType
 
 export const mainReducer = (state = initialState, action: ActionType): initialStateType => {
     switch (action.type) {
@@ -29,6 +31,7 @@ export const getImagesAC = (images: ResponseType) => {
         images  
     } as const
 }
+
 
 export const getImagesTC = () => (dispatch: Dispatch) => {
     api

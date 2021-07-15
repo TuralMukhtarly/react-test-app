@@ -1,15 +1,19 @@
 import React from 'react';
-import { HashRouter } from 'react-router-dom';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import './App.css';
+import Bookmarks from './components/Bookmarks';
+import Photos from './components/Photos';
+import SideBar from './components/SideBar';
 import MiniDrawer from './components/SideBar';
+import Routes from './routes/Routes';
 
 function App() {
   return (
-    <HashRouter>
+    <BrowserRouter>
       <div className="App">
-      <MiniDrawer/>
       </div>
-    </HashRouter>
+      <SideBar/>
+    </BrowserRouter>
   );
 }
 
