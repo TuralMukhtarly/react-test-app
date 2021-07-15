@@ -1,12 +1,12 @@
 import axios from "axios"
 
 const instance = axios.create({
-    baseURL: "https://www.flickr.com/",
+    baseURL: "https://api.flickr.com/services/rest/?method=flickr.photos.search&format=json&nojsoncallback=true&api_key=88511e631d64958716f46a5c31c01824&per_page=20",
 })
 
 export const api = {
-    getImages(){
-        return instance.get<ResponseType>(`services/rest/?method=flickr.photos.search&api_key=a8cd496275e5274e52baf05bc8bd08e3&tags=${"baku"}&format=json&nojsoncallback=1`)
+    getImages(searchText:string, pageNumber:number){
+        return instance.get<ResponseType>(`&page=${pageNumber}&text=${searchText}`).then(res => res.data)
     }
 }
 

@@ -7,7 +7,8 @@ export const PATH = {
     MAIN: "/",
     BOOKMARS:"/bookmarks"
 }
-function Routes(props:any) {
+
+function Routes() {
     return (
         <div>
             <Switch>

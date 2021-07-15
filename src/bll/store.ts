@@ -1,11 +1,9 @@
 import { applyMiddleware, combineReducers, createStore } from "redux";
 import thunk from "redux-thunk";
-import { bookmarksReducer } from "./bookmarksReducer";
-import { mainReducer } from "./reducer";
+import { mainReducer } from "./mainReducer";
 
 const rootReducer = combineReducers({
-    reducer:mainReducer,
-    bookmarks:bookmarksReducer
+    reducer:mainReducer
 })
 // определить автоматически тип всего объекта состояния
 export const store = createStore(rootReducer, applyMiddleware(thunk))
