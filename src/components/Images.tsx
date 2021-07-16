@@ -50,17 +50,16 @@ function Images() {
           <ul key={e.id}>
             <div>
               <img src={srcPath} alt="#" width="230px" height="240px" />
-              
-                <div>
-                  <TextField
-                    variant="outlined"
-                    label="some tag?"
-                    onChange={onChangeHandler}
-                    className={classes.field}
-                  />
-                </div>
-                <div>
-                  
+
+              <div>
+                <TextField
+                  variant="outlined"
+                  label="some tag?"
+                  onChange={onChangeHandler}
+                  className={classes.field}
+                />
+              </div>
+              <div>
                 {!!localStorage.getItem(e.id) ? (
                   <Button
                     variant="outlined"
@@ -79,7 +78,7 @@ function Images() {
                     variant="outlined"
                     size="medium"
                     color="primary"
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop:"5px" }}
                     onClick={() =>
                       setValues(e.farm, e.server, e.id, e.secret, e.title)
                     }
