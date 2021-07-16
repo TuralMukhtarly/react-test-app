@@ -88,8 +88,8 @@ export const useStyles = makeStyles((theme) => ({
     color: "rgba(255, 255, 255, 0.54)",
   },
   field: {
-    flexDirection:"column",
-    marginLeft:"4px"
+    display: "flex",  
+    margin: "5px 0 5px 0",
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
