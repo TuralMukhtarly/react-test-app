@@ -54,7 +54,7 @@ function Images() {
               alt="#"
               width="230px"
               height="240px"
-              style={{ border: "5px solid lightblue" }}
+              
             />
             <TextField
               variant="outlined"
@@ -62,6 +62,7 @@ function Images() {
               onChange={onChangeHandler}
               className={classes.field}
             />
+            <div>
             {!!localStorage.getItem(e.id) ? (
               <Button
                 variant="outlined"
@@ -88,6 +89,7 @@ function Images() {
                 Bookmark it
               </Button>
             )}
+            </div>
             </Paper>
           </ul>
         );
