@@ -48,7 +48,7 @@ function Images() {
           ".jpg";
         return (
           <ul key={e.id}>
-            <Paper>
+            <div>
               <img src={srcPath} alt="#" width="230px" height="240px" />
               
                 <div>
@@ -88,7 +88,7 @@ function Images() {
                   </Button>
                 )}
               </div>
-            </Paper>
+            </div>
           </ul>
         );
       })}
