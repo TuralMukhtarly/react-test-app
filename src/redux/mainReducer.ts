@@ -4,7 +4,12 @@ import { api, ResponseType } from "../api/api"
 type initialStateType = any
 
 const initialState: initialStateType = {
-    photos: {}
+    photos: {
+        page:1,
+        pages:234,
+        perpage:20,
+        photo: []
+    },
 }
 
 type getImagesType = ReturnType<typeof getImagesAC>

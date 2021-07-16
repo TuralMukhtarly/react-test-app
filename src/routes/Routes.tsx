@@ -1,12 +1,9 @@
 import React from "react";
 import { Route, Switch } from "react-router-dom";
 import Bookmarks from "../components/Bookmarks";
-import Photos from "../components/Photos";
+import Photos from "../components/Search";
+import { PATH } from "./path";
 
-export const PATH = {
-    MAIN: "/",
-    BOOKMARS:"/bookmarks"
-}
 
 function Routes() {
     return (

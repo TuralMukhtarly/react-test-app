@@ -1,10 +1,11 @@
 import { Button } from "@material-ui/core";
-import React from "react";
-import { useSelector } from "react-redux";
-import { PhotoType, ResponseType } from "../api/api";
-import { AppRootStateType } from "../bll/store";
+import React, { useState } from "react";
+import { PhotoType } from "../api/api";
+import { useStyles } from "../styles/styles";
 
 function Bookmarks() {
+    const [ids, setIds] = useState<string>("")
+    const classes = useStyles();
     const storage = () => {
         let pictures: Array<PhotoType> = []
         let keys: Array<string> = Object.keys(localStorage)
@@ -28,6 +29,7 @@ function Bookmarks() {
                             color="secondary"
                             onClick={() => {
                                 localStorage.removeItem(e.id)
+                                setIds(e.id)
                             }}>Remove it</Button>
                 </div>
             </ul>

@@ -1,6 +1,6 @@
 import React from 'react';
 import clsx from 'clsx';
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { useTheme } from '@material-ui/core/styles';
 import Drawer from '@material-ui/core/Drawer';
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -17,70 +17,10 @@ import ListItemText from '@material-ui/core/ListItemText';
 import CloudIcon from '@material-ui/icons/Cloud';
 import BookmarksIcon from '@material-ui/icons/Bookmarks';
 import { NavLink } from 'react-router-dom';
-import Routes, { PATH } from '../routes/Routes';
+import Routes from '../routes/Routes';
+import { useStyles } from '../styles/styles';
+import { PATH } from '../routes/path';
 
-const drawerWidth = 240;
-
-const useStyles = makeStyles((theme) => ({
-  root: {
-    display: 'flex',
-  },
-  appBar: {
-    zIndex: theme.zIndex.drawer + 1,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-  },
-  appBarShift: {
-    marginLeft: drawerWidth,
-    width: `calc(100% - ${drawerWidth}px)`,
-    transition: theme.transitions.create(['width', 'margin'], {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  menuButton: {
-    marginRight: 36,
-  },
-  hide: {
-    display: 'none',
-  },
-  drawer: {
-    width: drawerWidth,
-    flexShrink: 0,
-    whiteSpace: 'nowrap',
-  },
-  drawerOpen: {
-    width: drawerWidth,
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.enteringScreen,
-    }),
-  },
-  drawerClose: {
-    transition: theme.transitions.create('width', {
-      easing: theme.transitions.easing.sharp,
-      duration: theme.transitions.duration.leavingScreen,
-    }),
-    overflowX: 'hidden',
-    width: theme.spacing(7) + 1,
-    [theme.breakpoints.up('sm')]: {
-      width: theme.spacing(9) + 1,
-    },
-  },
-  toolbar: {
-    display: 'flex',
-    alignItems: 'center',
-    justifyContent: 'flex-end',
-    padding: theme.spacing(0, 1),
-    ...theme.mixins.toolbar,
-  },
-  content: {
-    flexGrow: 1,
-    padding: theme.spacing(3),
-  },
-}));
 
 export default function SideBar() {
   const classes = useStyles();
@@ -143,10 +83,14 @@ export default function SideBar() {
         <List>
           {['All Photos', 'Bookmarks'].map((text, index) => (
             <ListItem button key={text}>
-              <ListItemIcon>{index % 2 === 0 ? <NavLink to={PATH.MAIN}><CloudIcon /></NavLink> : <NavLink to={PATH.BOOKMARS} replace><BookmarksIcon /></NavLink>}</ListItemIcon>
+              <ListItemIcon>{index % 2 === 0 ? 
+
+              <NavLink to={PATH.MAIN}><CloudIcon /></NavLink> : 
+              <NavLink to={PATH.BOOKMARS}><BookmarksIcon /></NavLink>}
+              
+              </ListItemIcon>
               <ListItemText primary={text} />
             </ListItem>
-            
           ))}
         </List>
       </Drawer>
