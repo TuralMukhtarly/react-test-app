@@ -1,4 +1,4 @@
-import { Button, TextField } from "@material-ui/core";
+import { Paper } from "@material-ui/core";
 import { Pagination } from "@material-ui/lab";
 import React, { ChangeEvent, useEffect } from "react";
 import { KeyboardEvent } from "react";
@@ -9,9 +9,11 @@ import { AppRootStateType } from "../redux/store";
 import Images from "./Images";
 import { useStyles } from "../styles/styles";
 import { getImagesTC } from "../redux/mainReducer";
+import { InputBase } from "@material-ui/core";
+import { IconButton } from "@material-ui/core";
+import SearchIcon from "@material-ui/icons/Search";
 
 function Search() {
-
   const classes = useStyles();
   const dispatch = useDispatch();
   const photos = useSelector<AppRootStateType, ResponseType>(
@@ -28,7 +30,7 @@ function Search() {
       dispatch(getImagesTC(requestText, page));
       setPagesCount(photos.photos.pages);
     }
-  }, [requestText, page, photos.photos.pages,dispatch ]);
+  }, [requestText, page, photos.photos.pages, dispatch]);
 
   const onChangeHandler = (e: ChangeEvent<HTMLInputElement>) => {
     setState(e.currentTarget.value);
@@ -58,26 +60,23 @@ function Search() {
 
   return (
     <div>
-      <TextField
-        onKeyPress={onKeyPressHandler}
-        className={classes.textField}
-        onBlur={onBlurHandler}
-        onChange={onChangeHandler}
-        id="outlined-search"
-        label="Find Images"
-        type="search"
-        variant="outlined"
-      />
-
-      <Button
-        onClick={onClickHandler}
-        color="primary"
-        variant="outlined"
-        style={{ height: 55, width: 80 }}
-      >
-        Find
-      </Button>
-
+      <Paper className={classes.rootSearch}>
+        <InputBase
+          onKeyPress={onKeyPressHandler}
+          onBlur={onBlurHandler}
+          onChange={onChangeHandler}
+          className={classes.input}
+          placeholder="Search images"
+        />
+        <IconButton
+          onClick={onClickHandler}
+          type="submit"
+          className={classes.iconButton}
+          aria-label="search"
+        >
+          <SearchIcon />
+        </IconButton>
+      </Paper>
       {!requestText || photos.photos.photo.length < 1 ? (
         <h2 className={classes.title}>
           No images here. Whould you try to search for anything else?

@@ -70,12 +70,10 @@ export const useStyles = makeStyles((theme) => ({
     justifyContent: "flex-end",
     display: "flex",
     marginTop: "30px",
-  },
-  textField: {
-    width: "92%",
+    flexWrap: "wrap",
   },
   button: {
-    display: " flex",
+    display: "flex",
   },
   rootList: {
     display: "flex",
@@ -109,5 +107,23 @@ export const useStyles = makeStyles((theme) => ({
   },
   imagesBlock: {
     marginTop: "10px",
+  },
+  link: {
+    textDecoration: "none",
+    color: "black",
+  },
+  rootSearch: {
+    padding: "2px 4px",
+    display: "flex",
+    alignItems: "center",
+  },
+  input: {
+    marginLeft: theme.spacing(1),
+    flex: 1,
+    display: "flex",
+    margin: "5px 0 5px 0",
+  },
+  iconButton: {
+    padding: 10,
   },
 }));

@@ -35,7 +35,16 @@ function Images() {
   return (
     <div className={classes.rootList}>
       {images.photos.photo.map((e) => {
-        const srcPath ="https://farm" + e.farm + ".staticflickr.com/" + e.server + "/" + e.id + "_" + e.secret + ".jpg";
+        const srcPath =
+          "https://farm" +
+          e.farm +
+          ".staticflickr.com/" +
+          e.server +
+          "/" +
+          e.id +
+          "_" +
+          e.secret +
+          ".jpg";
         return (
           <ul key={e.id}>
             <img

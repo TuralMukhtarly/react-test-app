@@ -1,16 +1,21 @@
 import { Dispatch } from "redux";
 import { api, ResponseType } from "../api/api";
 
-type initialStateType = ResponseType
+type initialStateType = ResponseType;
 const initialState: initialStateType = {
   photos: {
     page: 1,
     pages: 234,
     perpage: 20,
-    total:12,
+    total: 12,
     photo: [],
   },
-  stat:"ok"
+  stat: "ok",
+};
+
+type GetImagesACType = {
+  type: string;
+  images: ResponseType;
 };
 
 type getImagesType = ReturnType<typeof getImagesAC>;
@@ -28,7 +33,7 @@ export const mainReducer = (
   }
 };
 
-export const getImagesAC = (images: ResponseType) => {
+export const getImagesAC = (images: ResponseType): GetImagesACType => {
   return {
     type: "IMAGES/GET_IMAGES",
     images,

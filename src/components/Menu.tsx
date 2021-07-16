@@ -16,7 +16,7 @@ import ListItemIcon from "@material-ui/core/ListItemIcon";
 import ListItemText from "@material-ui/core/ListItemText";
 import CloudIcon from "@material-ui/icons/Cloud";
 import BookmarksIcon from "@material-ui/icons/Bookmarks";
-import { NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import Routes from "../routes/Routes";
 import { useStyles } from "../styles/styles";
 import { PATH } from "../routes/path";
@@ -88,22 +88,22 @@ export default function Menu() {
         </div>
 
         <List>
-          {["All Photos", "Bookmarks"].map((text, index) => (
-            <ListItem button key={text}>
+          <Link to={PATH.MAIN} className={classes.link}>
+            <ListItem button>
               <ListItemIcon>
-                {index % 2 === 0 ? (
-                  <NavLink to={PATH.MAIN}>
-                    <CloudIcon />
-                  </NavLink>
-                ) : (
-                  <NavLink to={PATH.BOOKMARS}>
-                    <BookmarksIcon />
-                  </NavLink>
-                )}
+                <CloudIcon />
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary="All Images" />
             </ListItem>
-          ))}
+          </Link>
+          <Link to={PATH.BOOKMARS} className={classes.link}>
+            <ListItem button key="aLL">
+              <ListItemIcon>
+                <BookmarksIcon />
+              </ListItemIcon>
+              <ListItemText primary="Bookmarks" />
+            </ListItem>
+          </Link>
         </List>
       </Drawer>
       <main className={classes.content}>
