@@ -49,7 +49,7 @@ function Images() {
         return (
           <ul key={e.id}>
             <div>
-              <img src={srcPath} alt="#" width="230px" height="240px" />
+              <img src={srcPath} alt="#" width="220px" height="240px" />
 
               <div>
                 <TextField
@@ -65,7 +65,7 @@ function Images() {
                     variant="outlined"
                     size="medium"
                     color="secondary"
-                    style={{ float: "right" }}
+                    style={{ float: "right", marginTop:"5px" }}
                     onClick={() => {
                       localStorage.removeItem(e.id);
                       setIds(e.secret);

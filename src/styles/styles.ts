@@ -89,7 +89,6 @@ export const useStyles = makeStyles((theme) => ({
   },
   field: {
     display: "flex",  
-    margin: "5px 0 5px 0",
   },
   backdrop: {
     zIndex: theme.zIndex.drawer + 1,
