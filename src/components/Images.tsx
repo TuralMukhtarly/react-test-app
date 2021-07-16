@@ -1,3 +1,4 @@
+import { Paper } from "@material-ui/core";
 import { Button, TextField } from "@material-ui/core";
 import React, { ChangeEvent, useState } from "react";
 import { useSelector } from "react-redux";
@@ -47,6 +48,7 @@ function Images() {
           ".jpg";
         return (
           <ul key={e.id}>
+            <Paper>
             <img
               src={srcPath}
               alt="#"
@@ -86,6 +88,7 @@ function Images() {
                 Bookmark it
               </Button>
             )}
+            </Paper>
           </ul>
         );
       })}
