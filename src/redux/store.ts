@@ -3,12 +3,10 @@ import thunk from "redux-thunk";
 import { mainReducer } from "./mainReducer";
 
 const rootReducer = combineReducers({
-    reducer:mainReducer
-})
-// определить автоматически тип всего объекта состояния
-export const store = createStore(rootReducer, applyMiddleware(thunk))
-export type AppRootStateType = ReturnType<typeof rootReducer>
+  reducer: mainReducer,
+});
 
-//@ts-ignore
-window.store = store
+export const store = createStore(rootReducer, applyMiddleware(thunk));
+export type AppRootStateType = ReturnType<typeof rootReducer>;
+
 export default store;

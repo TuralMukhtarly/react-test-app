@@ -1,4 +1,4 @@
 export const PATH = {
-    MAIN: "/",
-    BOOKMARS:"/bookmarks"
-}
+  MAIN: "/",
+  BOOKMARS: "/bookmarks",
+};
