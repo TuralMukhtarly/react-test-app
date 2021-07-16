@@ -49,47 +49,45 @@ function Images() {
         return (
           <ul key={e.id}>
             <Paper>
-            <img
-              src={srcPath}
-              alt="#"
-              width="230px"
-              height="240px"
+              <img src={srcPath} alt="#" width="230px" height="240px" />
               
-            />
-            <TextField
-              variant="outlined"
-              label="some tag?"
-              onChange={onChangeHandler}
-              className={classes.field}
-            />
-            <div>
-            {!!localStorage.getItem(e.id) ? (
-              <Button
-                variant="outlined"
-                size="medium"
-                color="secondary"
-                style={{ float: "right" }}
-                onClick={() => {
-                  localStorage.removeItem(e.id);
-                  setIds(e.secret);
-                }}
-              >
-                Remove it
-              </Button>
-            ) : (
-              <Button
-                variant="outlined"
-                size="medium"
-                color="primary"
-                style={{ float: "right" }}
-                onClick={() =>
-                  setValues(e.farm, e.server, e.id, e.secret, e.title)
-                }
-              >
-                Bookmark it
-              </Button>
-            )}
-            </div>
+                <div>
+                  <TextField
+                    variant="outlined"
+                    label="some tag?"
+                    onChange={onChangeHandler}
+                    className={classes.field}
+                  />
+                </div>
+                <div>
+                  
+                {!!localStorage.getItem(e.id) ? (
+                  <Button
+                    variant="outlined"
+                    size="medium"
+                    color="secondary"
+                    style={{ float: "right" }}
+                    onClick={() => {
+                      localStorage.removeItem(e.id);
+                      setIds(e.secret);
+                    }}
+                  >
+                    Remove it
+                  </Button>
+                ) : (
+                  <Button
+                    variant="outlined"
+                    size="medium"
+                    color="primary"
+                    style={{ float: "right" }}
+                    onClick={() =>
+                      setValues(e.farm, e.server, e.id, e.secret, e.title)
+                    }
+                  >
+                    Bookmark it
+                  </Button>
+                )}
+              </div>
             </Paper>
           </ul>
         );
